@@ -1,3 +1,15 @@
 <h2> <%= @cocktail.name %> detailed page </h2>
 
+<% @cocktail.doses.each do |dose| %>
+  <p> <%= @cocktail.name %> needs <%= dose.description %> of <%= dose.ingredient.name %> </p>
+  <p> <%= link_to "Delete dose", cocktail_dose_path(:id => dose.id, :cocktail_id => @cocktail.id), method: :delete%> </p>
+<% end %>
+
 <%= link_to "See all cocktails", cocktails_path, {  class: "btn btn-primary" } %>
+
+<%= link_to "Create a new dose", new_cocktail_dose_path(@cocktail), { class: "btn btn-primary" } %>
+
+
+  <p> <%= link_to "Delete cocktail", cocktail_path(@cocktail), method: :delete%> </p>
+
+
