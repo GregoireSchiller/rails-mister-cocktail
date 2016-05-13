@@ -1,4 +1,11 @@
+div.wrapper>div.container>div.
+
 <h2> <%= @cocktail.name %> detailed page </h2>
+
+<% @cocktail.ingredients.each do |ingredient| %>
+  <p> <%= ingredient.name %>  </p>
+  <p> <%= link_to "Delete dose", cocktail_dose_path(:id => dose.id, :cocktail_id => @cocktail.id), method: :delete%> </p>
+<% end %>
 
 <% @cocktail.doses.each do |dose| %>
   <p> <%= @cocktail.name %> needs <%= dose.description %> of <%= dose.ingredient.name %> </p>
